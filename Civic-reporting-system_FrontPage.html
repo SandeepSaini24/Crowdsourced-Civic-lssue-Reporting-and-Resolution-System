@@ -328,7 +328,7 @@
             opacity: 0.9;
         }
 
-        /* App Section Styles (Initially Hidden) */
+        /* App Section Styles */
         .app-section {
             display: none;
             min-height: 100vh;
@@ -353,19 +353,50 @@
             margin-bottom: 30px;
             box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
             border: 1px solid rgba(255, 255, 255, 0.18);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .app-header h1 {
             color: #2c3e50;
-            text-align: center;
-            margin-bottom: 10px;
             font-size: 2.5em;
+            margin: 0;
         }
 
-        .app-header p {
-            text-align: center;
-            color: #7f8c8d;
-            font-size: 1.1em;
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .user-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .logout-btn {
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .logout-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
         .back-btn {
@@ -392,11 +423,12 @@
             background: rgba(255, 255, 255, 0.1);
             border-radius: 50px;
             padding: 5px;
+            flex-wrap: wrap;
         }
 
         .nav-tab {
             padding: 15px 30px;
-            margin: 0 5px;
+            margin: 5px;
             background: transparent;
             border: none;
             color: white;
@@ -430,6 +462,7 @@
             box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
             border: 1px solid rgba(255, 255, 255, 0.18);
             margin-bottom: 20px;
+            color: #2c3e50;
         }
 
         .form-group {
@@ -482,6 +515,275 @@
             box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
         }
 
+        /* Issue Card Styles */
+        .issue-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            color: #2c3e50;
+        }
+
+        .issue-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .issue-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .issue-title-section h3 {
+            color: #2c3e50;
+            margin-bottom: 5px;
+            font-size: 1.3em;
+        }
+
+        .issue-meta {
+            display: flex;
+            gap: 15px;
+            font-size: 0.9em;
+            color: #7f8c8d;
+            flex-wrap: wrap;
+        }
+
+        .category-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        .status-pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .status-in-progress {
+            background: #cfe2ff;
+            color: #084298;
+        }
+
+        .status-resolved {
+            background: #d1e7dd;
+            color: #0f5132;
+        }
+
+        .urgency-high {
+            background: #f8d7da;
+            color: #842029;
+        }
+
+        .urgency-medium {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .urgency-low {
+            background: #d1e7dd;
+            color: #0f5132;
+        }
+
+        .issue-description {
+            margin: 15px 0;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .issue-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+
+        .issue-actions {
+            display: flex;
+            gap: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #e0e6ed;
+            margin-top: 15px;
+        }
+
+        .action-btn {
+            background: transparent;
+            border: none;
+            color: #7f8c8d;
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .action-btn:hover {
+            background: #f0f0f0;
+            color: #2c3e50;
+        }
+
+        .action-btn.active {
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .action-btn.liked {
+            color: #e74c3c;
+        }
+
+        /* Comments Section */
+        .comments-section {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid #e0e6ed;
+        }
+
+        .comment {
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .comment-author {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .comment-time {
+            font-size: 0.85em;
+            color: #7f8c8d;
+        }
+
+        .comment-text {
+            color: #555;
+            line-height: 1.5;
+        }
+
+        .comment-form {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .comment-input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 2px solid #e0e6ed;
+            border-radius: 25px;
+            font-size: 14px;
+        }
+
+        .comment-input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .comment-btn {
+            padding: 12px 25px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .comment-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Filter Section */
+        .filter-section {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .filter-section select,
+        .filter-section input {
+            padding: 10px 15px;
+            border: 2px solid #e0e6ed;
+            border-radius: 10px;
+            font-size: 14px;
+        }
+
+        /* Dashboard Stats */
+        .dashboard-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .stat-card h3 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .stat-card p {
+            opacity: 0.9;
+            font-size: 1.1em;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #7f8c8d;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #7f8c8d;
+        }
+
+        .empty-state i {
+            font-size: 4em;
+            margin-bottom: 20px;
+            opacity: 0.3;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .hero-title {
@@ -514,25 +816,15 @@
                 margin: 5px 0;
                 border-radius: 10px;
             }
-        }
 
-        /* Animations */
-        .fade-in {
-            animation: fadeIn 0.8s ease-out;
-        }
+            .app-header {
+                flex-direction: column;
+                gap: 15px;
+            }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .slide-up {
-            animation: slideUp 0.6s ease-out;
-        }
-
-        @keyframes slideUp {
-            from { transform: translateY(50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+            .issue-actions {
+                flex-wrap: wrap;
+            }
         }
     </style>
 </head>
@@ -548,7 +840,7 @@
                     Empowering citizens to report civic issues instantly. Join thousands of users making their communities better through technology, AI-powered categorization, and transparent governance.
                 </p>
                 <div class="cta-buttons">
-                    <button class="cta-btn" onclick="window.location.href='file:///C:/Coding/CivicConnect/civic-reporting-system_SecondPage.html'">
+                    <button class="cta-btn" onclick="enterApp()">
                         <i class="fas fa-rocket"></i>
                         Get Started Now
                     </button>
@@ -567,7 +859,7 @@
                 <p class="section-subtitle">Advanced technology meets community participation for better cities</p>
                 
                 <div class="features-grid">
-                    <div class="feature-card slide-up">
+                    <div class="feature-card">
                         <div class="feature-icon">
                             <i class="fas fa-mobile-alt"></i>
                         </div>
@@ -575,7 +867,7 @@
                         <p class="feature-description">Report issues with just a few taps. Add photos, GPS location, and detailed descriptions effortlessly.</p>
                     </div>
                     
-                    <div class="feature-card slide-up">
+                    <div class="feature-card">
                         <div class="feature-icon">
                             <i class="fas fa-brain"></i>
                         </div>
@@ -583,7 +875,7 @@
                         <p class="feature-description">Our advanced AI automatically categorizes and prioritizes issues, routing them to the right departments instantly.</p>
                     </div>
                     
-                    <div class="feature-card slide-up">
+                    <div class="feature-card">
                         <div class="feature-icon">
                             <i class="fas fa-users"></i>
                         </div>
@@ -591,7 +883,7 @@
                         <p class="feature-description">Let the community vote on issues that matter most. Collective voice drives priority and ensures attention to critical problems.</p>
                     </div>
                     
-                    <div class="feature-card slide-up">
+                    <div class="feature-card">
                         <div class="feature-icon">
                             <i class="fas fa-chart-line"></i>
                         </div>
@@ -599,7 +891,7 @@
                         <p class="feature-description">Track your reported issues from submission to resolution. Full transparency in government response and action.</p>
                     </div>
                     
-                    <div class="feature-card slide-up">
+                    <div class="feature-card">
                         <div class="feature-icon">
                             <i class="fas fa-bell"></i>
                         </div>
@@ -607,7 +899,7 @@
                         <p class="feature-description">Stay updated with push notifications, SMS, and email alerts about your reports and community issues.</p>
                     </div>
                     
-                    <div class="feature-card slide-up">
+                    <div class="feature-card">
                         <div class="feature-icon">
                             <i class="fas fa-shield-alt"></i>
                         </div>
@@ -681,7 +973,7 @@
             <div class="container">
                 <h2 class="final-cta-title">Ready to Transform Your Community?</h2>
                 <p class="final-cta-text">Join thousands of engaged citizens making a real difference</p>
-                <button class="cta-btn" onclick="window.location.href='file:///C:/Coding/CivicConnect/civic-reporting-system_SecondPage.html'">
+                <button class="cta-btn" onclick="enterApp()">
                     <i class="fas fa-arrow-right"></i>
                     Start Reporting Issues
                 </button>
@@ -689,16 +981,20 @@
         </section>
     </div>
 
-    <!-- Main Application (Initially Hidden) -->
+    <!-- Main Application -->
     <div class="app-section" id="appSection">
         <div class="app-container">
-            <button class="back-btn" onclick="backToLanding()">
-                <i class="fas fa-arrow-left"></i> Back to Home
-            </button>
-
             <div class="app-header">
-                <h1><i class="fas fa-city"></i> CivicConnect</h1>
-                <p>Report Issues, Track Progress, Build Better Communities</p>
+                <div>
+                    <h1><i class="fas fa-city"></i> CivicConnect</h1>
+                </div>
+                <div class="user-info">
+                    <div class="user-avatar" id="userAvatar">U</div>
+                    <span id="userEmail" style="color: #2c3e50;">user@example.com</span>
+                    <button class="logout-btn" onclick="logout()">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </div>
             </div>
 
             <nav class="nav-tabs">
@@ -709,7 +1005,7 @@
                     <i class="fas fa-list"></i> Browse Issues
                 </button>
                 <button class="nav-tab" onclick="switchTab('dashboard')">
-                    <i class="fas fa-chart-bar"></i> Dashboard
+                    <i class="fas fa-chart-bar"></i> My Dashboard
                 </button>
             </nav>
 
@@ -717,7 +1013,7 @@
             <div id="report" class="tab-content active">
                 <div class="card">
                     <h2><i class="fas fa-exclamation-triangle"></i> Report a Civic Issue</h2>
-                    <form id="reportForm">
+                    <form id="reportForm" onsubmit="submitReport(event)">
                         <div class="form-group">
                             <label for="issueTitle">Issue Title *</label>
                             <input type="text" id="issueTitle" required placeholder="Brief description of the issue">
@@ -745,7 +1041,7 @@
 
                         <div class="form-group">
                             <label for="issuePhoto">Upload Photo</label>
-                            <input type="file" id="issuePhoto" accept="image/*">
+                            <input type="file" id="issuePhoto" accept="image/*" onchange="handleImageUpload(event)">
                         </div>
 
                         <div class="form-group">
@@ -758,7 +1054,12 @@
                             </select>
                         </div>
 
-                        <button type="button" class="btn" onclick="getCurrentLocation()">
+                        <div class="form-group">
+                            <label for="location">Location</label>
+                            <input type="text" id="location" placeholder="Enter location or use GPS">
+                        </div>
+
+                        <button type="button" class="btn" onclick="getCurrentLocation()" style="margin-bottom: 15px;">
                             <i class="fas fa-map-marker-alt"></i> Get Current Location
                         </button>
 
@@ -773,28 +1074,66 @@
 
             <!-- Browse Issues Tab -->
             <div id="browse" class="tab-content">
-                <div class="card">
-                    <h2><i class="fas fa-search"></i> Browse & Vote on Issues</h2>
-                    <p style="text-align: center; margin: 20px 0; color: #7f8c8d;">
-                        Browse community reported issues and vote on the ones that matter to you.
-                    </p>
-                    <div style="text-align: center; padding: 40px;">
-                        <i class="fas fa-tasks" style="font-size: 3em; color: #bdc3c7; margin-bottom: 20px;"></i>
-                        <p style="color: #7f8c8d;">Issue browsing functionality will be implemented here.</p>
+                <div class="filter-section">
+                    <label style="color: #2c3e50; font-weight: 600;">Filter:</label>
+                    <select id="categoryFilter" onchange="loadIssues()">
+                        <option value="">All Categories</option>
+                        <option value="roads">Roads & Infrastructure</option>
+                        <option value="waste">Waste Management</option>
+                        <option value="water">Water Supply</option>
+                        <option value="electricity">Electricity</option>
+                        <option value="traffic">Traffic & Transportation</option>
+                        <option value="parks">Parks & Public Spaces</option>
+                        <option value="safety">Safety & Security</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <select id="statusFilter" onchange="loadIssues()">
+                        <option value="">All Status</option>
+                        <option value="pending">Pending</option>
+                        <option value="in-progress">In Progress</option>
+                        <option value="resolved">Resolved</option>
+                    </select>
+                    <select id="sortBy" onchange="loadIssues()">
+                        <option value="recent">Most Recent</option>
+                        <option value="likes">Most Liked</option>
+                        <option value="comments">Most Commented</option>
+                    </select>
+                </div>
+
+                <div id="issuesContainer">
+                    <div class="loading">
+                        <i class="fas fa-spinner fa-spin"></i> Loading issues...
                     </div>
                 </div>
             </div>
 
             <!-- Dashboard Tab -->
             <div id="dashboard" class="tab-content">
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <h3 id="totalIssuesCount">0</h3>
+                        <p>Total Reports</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 id="pendingCount">0</h3>
+                        <p>Pending</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 id="inProgressCount">0</h3>
+                        <p>In Progress</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 id="resolvedCount">0</h3>
+                        <p>Resolved</p>
+                    </div>
+                </div>
+
                 <div class="card">
-                    <h2><i class="fas fa-chart-bar"></i> Authority Dashboard</h2>
-                    <p style="text-align: center; margin: 20px 0; color: #7f8c8d;">
-                        Administrative dashboard for tracking and managing civic issues.
-                    </p>
-                    <div style="text-align: center; padding: 40px;">
-                        <i class="fas fa-chart-line" style="font-size: 3em; color: #bdc3c7; margin-bottom: 20px;"></i>
-                        <p style="color: #7f8c8d;">Dashboard analytics will be implemented here.</p>
+                    <h2><i class="fas fa-list-alt"></i> My Reported Issues</h2>
+                    <div id="userIssuesContainer">
+                        <div class="loading">
+                            <i class="fas fa-spinner fa-spin"></i> Loading your issues...
+                        </div>
                     </div>
                 </div>
             </div>
@@ -802,15 +1141,34 @@
     </div>
 
     <script>
-        // Landing page functionality
+        // Global variables
+        let currentUser = null;
+        let currentImageData = null;
+        let allIssues = [];
+
+        // Initialize app
+        window.onload = async function() {
+            // Check authentication
+            const authData = sessionStorage.getItem('civicConnectAuth');
+            if (authData) {
+                const auth = JSON.parse(authData);
+                currentUser = auth.email;
+                document.getElementById('userEmail').textContent = auth.email;
+                document.getElementById('userAvatar').textContent = auth.email.charAt(0).toUpperCase();
+            } else {
+                currentUser = 'demo@user.com'; // Demo user
+                document.getElementById('userEmail').textContent = currentUser;
+                document.getElementById('userAvatar').textContent = 'D';
+            }
+
+            await loadIssues();
+        };
+
+        // Landing page functions
         function enterApp() {
             document.getElementById('landingPage').classList.add('hidden');
             document.getElementById('appSection').classList.add('active');
-        }
-
-        function backToLanding() {
-            document.getElementById('landingPage').classList.remove('hidden');
-            document.getElementById('appSection').classList.remove('active');
+            loadIssues();
         }
 
         function scrollToFeatures() {
@@ -819,20 +1177,451 @@
             });
         }
 
-        // App functionality
+        // Tab switching
         function switchTab(tabName) {
-            // Hide all tab contents
             document.querySelectorAll('.tab-content').forEach(tab => {
                 tab.classList.remove('active');
             });
 
-            // Remove active class from all nav tabs
             document.querySelectorAll('.nav-tab').forEach(tab => {
                 tab.classList.remove('active');
             });
 
-            // Show selected tab content
             document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
 
-            // Add active class to clicked nav tab
-            event.target
+            if (tabName === 'browse') {
+                loadIssues();
+            } else if (tabName === 'dashboard') {
+                loadUserDashboard();
+            }
+        }
+
+        // Get current location
+        function getCurrentLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const location = `${position.coords.latitude.toFixed(6)}, ${position.coords.longitude.toFixed(6)}`;
+                        document.getElementById('location').value = location;
+                        alert('Location captured successfully!');
+                    },
+                    (error) => {
+                        alert('Unable to get location. Please enter manually.');
+                    }
+                );
+            } else {
+                alert('Geolocation is not supported by your browser.');
+            }
+        }
+
+        // Handle image upload
+        function handleImageUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    currentImageData = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // Submit report
+        async function submitReport(event) {
+            event.preventDefault();
+
+            const issue = {
+                id: 'issue_' + Date.now(),
+                title: document.getElementById('issueTitle').value,
+                category: document.getElementById('issueCategory').value,
+                description: document.getElementById('issueDescription').value,
+                urgency: document.getElementById('urgency').value,
+                location: document.getElementById('location').value || 'Location not provided',
+                image: currentImageData,
+                author: currentUser,
+                status: 'pending',
+                createdAt: new Date().toISOString(),
+                likes: 0,
+                likedBy: [],
+                comments: [],
+                shares: 0
+            };
+
+            try {
+                await window.storage.set(issue.id, JSON.stringify(issue), false);
+                
+                alert('Issue reported successfully!');
+                document.getElementById('reportForm').reset();
+                currentImageData = null;
+                
+                switchTab('browse');
+                await loadIssues();
+            } catch (error) {
+                console.error('Error submitting report:', error);
+                alert('Failed to submit report. Please try again.');
+            }
+        }
+
+        // Load all issues
+        async function loadIssues() {
+            const container = document.getElementById('issuesContainer');
+            container.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i> Loading issues...</div>';
+
+            try {
+                const result = await window.storage.list('issue_', false);
+                
+                if (!result || !result.keys || result.keys.length === 0) {
+                    container.innerHTML = `
+                        <div class="empty-state">
+                            <i class="fas fa-inbox"></i>
+                            <h3>No issues reported yet</h3>
+                            <p>Be the first to report a civic issue in your community!</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                allIssues = [];
+                for (const key of result.keys) {
+                    try {
+                        const issueResult = await window.storage.get(key, false);
+                        if (issueResult) {
+                            const issue = JSON.parse(issueResult.value);
+                            allIssues.push(issue);
+                        }
+                    } catch (error) {
+                        console.error('Error loading issue:', key, error);
+                    }
+                }
+
+                // Apply filters
+                const categoryFilter = document.getElementById('categoryFilter')?.value || '';
+                const statusFilter = document.getElementById('statusFilter')?.value || '';
+                const sortBy = document.getElementById('sortBy')?.value || 'recent';
+
+                let filteredIssues = allIssues;
+
+                if (categoryFilter) {
+                    filteredIssues = filteredIssues.filter(issue => issue.category === categoryFilter);
+                }
+
+                if (statusFilter) {
+                    filteredIssues = filteredIssues.filter(issue => issue.status === statusFilter);
+                }
+
+                // Sort issues
+                filteredIssues.sort((a, b) => {
+                    if (sortBy === 'likes') {
+                        return b.likes - a.likes;
+                    } else if (sortBy === 'comments') {
+                        return b.comments.length - a.comments.length;
+                    } else {
+                        return new Date(b.createdAt) - new Date(a.createdAt);
+                    }
+                });
+
+                if (filteredIssues.length === 0) {
+                    container.innerHTML = `
+                        <div class="empty-state">
+                            <i class="fas fa-filter"></i>
+                            <h3>No issues match your filters</h3>
+                            <p>Try adjusting your filter criteria.</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                container.innerHTML = '';
+                filteredIssues.forEach(issue => {
+                    container.innerHTML += renderIssueCard(issue);
+                });
+
+            } catch (error) {
+                console.error('Error loading issues:', error);
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <h3>Error loading issues</h3>
+                        <p>Please try again later.</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Render issue card
+        function renderIssueCard(issue) {
+            const isLiked = issue.likedBy.includes(currentUser);
+            const categoryColors = {
+                roads: '#3498db',
+                waste: '#2ecc71',
+                water: '#1abc9c',
+                electricity: '#f39c12',
+                traffic: '#e74c3c',
+                parks: '#27ae60',
+                safety: '#c0392b',
+                other: '#95a5a6'
+            };
+
+            return `
+                <div class="issue-card">
+                    <div class="issue-header">
+                        <div class="issue-title-section">
+                            <span class="category-badge" style="background: ${categoryColors[issue.category]}; color: white;">
+                                ${issue.category.toUpperCase()}
+                            </span>
+                            <span class="category-badge urgency-${issue.urgency}">
+                                ${issue.urgency.toUpperCase()} URGENCY
+                            </span>
+                            <h3>${issue.title}</h3>
+                            <div class="issue-meta">
+                                <span><i class="fas fa-user"></i> ${issue.author}</span>
+                                <span><i class="fas fa-map-marker-alt"></i> ${issue.location}</span>
+                                <span><i class="fas fa-clock"></i> ${formatDate(issue.createdAt)}</span>
+                            </div>
+                        </div>
+                        <span class="status-badge status-${issue.status}">
+                            ${issue.status.replace('-', ' ').toUpperCase()}
+                        </span>
+                    </div>
+                    
+                    <p class="issue-description">${issue.description}</p>
+                    
+                    ${issue.image ? `<img src="${issue.image}" alt="Issue" class="issue-image">` : ''}
+                    
+                    <div class="issue-actions">
+                        <button class="action-btn ${isLiked ? 'liked' : ''}" onclick="toggleLike('${issue.id}')">
+                            <i class="fas fa-heart"></i>
+                            <span>${issue.likes}</span>
+                        </button>
+                        <button class="action-btn" onclick="toggleComments('${issue.id}')">
+                            <i class="fas fa-comment"></i>
+                            <span>${issue.comments.length}</span>
+                        </button>
+                        <button class="action-btn" onclick="shareIssue('${issue.id}')">
+                            <i class="fas fa-share"></i>
+                            <span>${issue.shares || 0}</span>
+                        </button>
+                    </div>
+                    
+                    <div class="comments-section" id="comments-${issue.id}" style="display: none;">
+                        <h4>Comments</h4>
+                        <div id="comments-list-${issue.id}">
+                            ${renderComments(issue.comments)}
+                        </div>
+                        <div class="comment-form">
+                            <input type="text" class="comment-input" id="comment-input-${issue.id}" placeholder="Add a comment...">
+                            <button class="comment-btn" onclick="addComment('${issue.id}')">Post</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Render comments
+        function renderComments(comments) {
+            if (!comments || comments.length === 0) {
+                return '<p style="text-align: center; color: #7f8c8d; padding: 20px;">No comments yet. Be the first to comment!</p>';
+            }
+
+            return comments.map(comment => `
+                <div class="comment">
+                    <div class="comment-header">
+                        <span class="comment-author">${comment.author}</span>
+                        <span class="comment-time">${formatDate(comment.createdAt)}</span>
+                    </div>
+                    <p class="comment-text">${comment.text}</p>
+                </div>
+            `).join('');
+        }
+
+        // Toggle like
+        async function toggleLike(issueId) {
+            try {
+                const result = await window.storage.get(issueId, false);
+                if (!result) return;
+
+                const issue = JSON.parse(result.value);
+                const likedIndex = issue.likedBy.indexOf(currentUser);
+
+                if (likedIndex > -1) {
+                    issue.likedBy.splice(likedIndex, 1);
+                    issue.likes--;
+                } else {
+                    issue.likedBy.push(currentUser);
+                    issue.likes++;
+                }
+
+                await window.storage.set(issueId, JSON.stringify(issue), false);
+                await loadIssues();
+            } catch (error) {
+                console.error('Error toggling like:', error);
+            }
+        }
+
+        // Toggle comments
+        function toggleComments(issueId) {
+            const commentsSection = document.getElementById(`comments-${issueId}`);
+            commentsSection.style.display = commentsSection.style.display === 'none' ? 'block' : 'none';
+        }
+
+        // Add comment
+        async function addComment(issueId) {
+            const input = document.getElementById(`comment-input-${issueId}`);
+            const text = input.value.trim();
+
+            if (!text) {
+                alert('Please enter a comment');
+                return;
+            }
+
+            try {
+                const result = await window.storage.get(issueId, false);
+                if (!result) return;
+
+                const issue = JSON.parse(result.value);
+                issue.comments.push({
+                    author: currentUser,
+                    text: text,
+                    createdAt: new Date().toISOString()
+                });
+
+                await window.storage.set(issueId, JSON.stringify(issue), false);
+                input.value = '';
+                await loadIssues();
+                toggleComments(issueId);
+            } catch (error) {
+                console.error('Error adding comment:', error);
+                alert('Failed to add comment. Please try again.');
+            }
+        }
+
+        // Share issue
+        async function shareIssue(issueId) {
+            try {
+                const result = await window.storage.get(issueId, false);
+                if (!result) return;
+
+                const issue = JSON.parse(result.value);
+                issue.shares = (issue.shares || 0) + 1;
+
+                await window.storage.set(issueId, JSON.stringify(issue), false);
+
+                if (navigator.share) {
+                    await navigator.share({
+                        title: issue.title,
+                        text: issue.description,
+                        url: window.location.href
+                    });
+                } else {
+                    alert('Issue shared! Share count updated.');
+                    await loadIssues();
+                }
+            } catch (error) {
+                console.error('Error sharing issue:', error);
+            }
+        }
+
+        // Load user dashboard
+        async function loadUserDashboard() {
+            const container = document.getElementById('userIssuesContainer');
+            container.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i> Loading your issues...</div>';
+
+            try {
+                const result = await window.storage.list('issue_', false);
+                
+                if (!result || !result.keys || result.keys.length === 0) {
+                    container.innerHTML = `
+                        <div class="empty-state">
+                            <i class="fas fa-clipboard-list"></i>
+                            <h3>No issues reported yet</h3>
+                            <p>Start by reporting your first civic issue!</p>
+                        </div>
+                    `;
+                    updateDashboardStats(0, 0, 0, 0);
+                    return;
+                }
+
+                const userIssues = [];
+                for (const key of result.keys) {
+                    try {
+                        const issueResult = await window.storage.get(key, false);
+                        if (issueResult) {
+                            const issue = JSON.parse(issueResult.value);
+                            if (issue.author === currentUser) {
+                                userIssues.push(issue);
+                            }
+                        }
+                    } catch (error) {
+                        console.error('Error loading issue:', key, error);
+                    }
+                }
+
+                if (userIssues.length === 0) {
+                    container.innerHTML = `
+                        <div class="empty-state">
+                            <i class="fas fa-clipboard-list"></i>
+                            <h3>No issues reported yet</h3>
+                            <p>Start by reporting your first civic issue!</p>
+                        </div>
+                    `;
+                    updateDashboardStats(0, 0, 0, 0);
+                    return;
+                }
+
+                // Sort by most recent
+                userIssues.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
+                // Calculate stats
+                const pending = userIssues.filter(i => i.status === 'pending').length;
+                const inProgress = userIssues.filter(i => i.status === 'in-progress').length;
+                const resolved = userIssues.filter(i => i.status === 'resolved').length;
+                updateDashboardStats(userIssues.length, pending, inProgress, resolved);
+
+                container.innerHTML = '';
+                userIssues.forEach(issue => {
+                    container.innerHTML += renderIssueCard(issue);
+                });
+
+            } catch (error) {
+                console.error('Error loading dashboard:', error);
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <h3>Error loading dashboard</h3>
+                        <p>Please try again later.</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Update dashboard stats
+        function updateDashboardStats(total, pending, inProgress, resolved) {
+            document.getElementById('totalIssuesCount').textContent = total;
+            document.getElementById('pendingCount').textContent = pending;
+            document.getElementById('inProgressCount').textContent = inProgress;
+            document.getElementById('resolvedCount').textContent = resolved;
+        }
+
+        // Format date
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            const now = new Date();
+            const diff = now - date;
+            const hours = Math.floor(diff / 3600000);
+            const days = Math.floor(diff / 86400000);
+
+            if (hours < 1) return 'Just now';
+            if (hours < 24) return `${hours}h ago`;
+            if (days < 7) return `${days}d ago`;
+            return date.toLocaleDateString();
+        }
+
+        // Logout
+        function logout() {
+            sessionStorage.removeItem('civicConnectAuth');
+            window.location.href = 'Civicconnect_login_page.html';
+        }
+    </script>
+</body>
+</html>

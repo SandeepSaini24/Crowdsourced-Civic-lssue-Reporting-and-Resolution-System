@@ -295,6 +295,20 @@
         .admin-badge.show {
             display: block;
         }
+
+        .demo-hint {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 12px;
+            z-index: 1000;
+            max-width: 300px;
+            transition: opacity 0.5s;
+        }
     </style>
 </head>
 <body>
@@ -344,7 +358,7 @@
         </form>
 
         <div class="forgot-password">
-            <a href="#">Forgot your password?</a>
+            <a href="#" onclick="showForgotPassword(); return false;">Forgot your password?</a>
         </div>
 
         <div class="divider">
@@ -352,7 +366,7 @@
         </div>
 
         <div class="signup-link">
-            Don't have an account? <a href="#" onclick="showSignupForm()">Create Account</a>
+            Don't have an account? <a href="#" onclick="showSignupForm(); return false;">Create Account</a>
         </div>
     </div>
 
@@ -449,6 +463,10 @@
             showError('Sign up functionality will be implemented in the next phase. Please use demo credentials for now.');
         }
 
+        function showForgotPassword() {
+            showError('Password recovery will be implemented in the next phase. Please use demo credentials for now.');
+        }
+
         // Login form submission
         document.getElementById('loginForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -480,11 +498,13 @@
                         loginTime: new Date().toISOString()
                     }));
                     
-                    // Redirect based on user type
+                    // Redirect based on user type - UPDATED PATHS
                     setTimeout(() => {
                         if (currentLoginType === 'user') {
+                            // Redirect to the new enhanced user portal
                             window.location.href = 'civic-reporting-system_FrontPage.html';
                         } else {
+                            // Redirect to admin dashboard
                             window.location.href = 'civic-reporting-system_SecondPage.html';
                         }
                     }, 1500);
@@ -501,44 +521,41 @@
         document.addEventListener('DOMContentLoaded', function() {
             setTimeout(() => {
                 const hint = document.createElement('div');
-                hint.style.cssText = `
-                    position: fixed;
-                    top: 20px;
-                    left: 20px;
-                    background: rgba(0, 0, 0, 0.8);
-                    color: white;
-                    padding: 15px;
-                    border-radius: 10px;
-                    font-size: 12px;
-                    z-index: 1000;
-                    max-width: 300px;
-                `;
+                hint.className = 'demo-hint';
                 hint.innerHTML = `
-                    <strong>Demo Credentials:</strong><br>
-                    <strong>User:</strong> user@civicconnect.com / user123<br>
-                    <strong>Admin:</strong> admin@civicconnect.com / admin123
+                    <strong>📢 Demo Credentials:</strong><br><br>
+                    <strong>👤 User Login:</strong><br>
+                    Email: user@civicconnect.com<br>
+                    Password: user123<br><br>
+                    <strong>🛡️ Admin Login:</strong><br>
+                    Email: admin@civicconnect.com<br>
+                    Password: admin123
                 `;
                 document.body.appendChild(hint);
                 
                 setTimeout(() => {
                     hint.style.opacity = '0';
-                    hint.style.transition = 'opacity 0.5s';
                     setTimeout(() => hint.remove(), 500);
-                }, 8000);
+                }, 10000);
             }, 2000);
         });
 
         // Check if user is already logged in
         const authData = sessionStorage.getItem('civicConnectAuth');
         if (authData) {
-            const auth = JSON.parse(authData);
-            if (auth.isLoggedIn) {
-                // Auto-redirect if session exists
-                if (auth.userType === 'user') {
-                    window.location.href = 'civic-reporting-system_FrontPage.html';
-                } else {
-                    window.location.href = 'civic-reporting-system_SecondPage.html';
+            try {
+                const auth = JSON.parse(authData);
+                if (auth.isLoggedIn) {
+                    // Auto-redirect if session exists
+                    if (auth.userType === 'user') {
+                        window.location.href = 'civic-reporting-system_FrontPage.html';
+                    } else {
+                        window.location.href = 'civic-reporting-system_SecondPage.html';
+                    }
                 }
+            } catch (error) {
+                console.error('Error parsing auth data:', error);
+                sessionStorage.removeItem('civicConnectAuth');
             }
         }
     </script>
